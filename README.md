@@ -20,4 +20,3 @@ Voice Chat with ChatGPT
 - [ ] speech to text
 - [ ] text to speech
 - [ ] README
-- [ ] 导出最小环境依赖
