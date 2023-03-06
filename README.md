@@ -15,6 +15,7 @@ Voice Chat with ChatGPT
    ```bash
    $ pip install -r requirements.txt
    ```
+   For M1 Mac users, try `conda install portaudio pyaudio` if you are having trouble with PyAudio installation.
 
 3. Make a copy of the example environment variables file
 
@@ -33,5 +34,7 @@ Voice Chat with ChatGPT
 ## Todo-List
 
 - [x] text chat
+- [ ] save chat log
+- [ ] exception handling
 - [ ] speech to text
 - [ ] text to speech
