@@ -35,7 +35,7 @@ Voice Chat with ChatGPT
 ## Todo-List
 
 - [x] text chat
+- [x] speech to text
+- [ ] text to speech
 - [ ] save chat log
 - [ ] exception handling
-- [ ] speech to text
-- [ ] text to speech

@@ -1,4 +1,4 @@
+keyboard==0.13.5
 openai==0.27.0
-pyaudio==0.2.13
-pynput==1.7.6
+PyAudio==0.2.13
 python-dotenv==1.0.0
