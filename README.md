@@ -15,7 +15,8 @@ Voice Chat with ChatGPT
    ```bash
    $ pip install -r requirements.txt
    ```
-   For M1 Mac users, try `conda install portaudio pyaudio` if you are having trouble with PyAudio installation.
+
+   For M1 Mac users, check [this solution](https://discussions.apple.com/thread/252638887?answerId=255859874022#255859874022) if you are having trouble with PyAudio installation.
 
 3. Make a copy of the example environment variables file
 
