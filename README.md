@@ -1,6 +1,11 @@
 # VoiceChatGPT
 
-Voice Chat with ChatGPT
+A simple script for Voice Talk with ChatGPT.
+
+* Use pyaudio for voice recording
+* Use OpenAI's API for speech-to-text transcription and conversation completion
+* Use the pyttsx3 engine for text-to-speech conversion (replace with other APIs for better voice quality)
+
 
 ## Setup
 1. Create a new virtual environment
@@ -29,7 +34,7 @@ Voice Chat with ChatGPT
 5. Run the app
 
    ```bash
-   $ python main.py
+   $ python main.py  # add --text to use text mode
    ```
 
 ## Todo-List
