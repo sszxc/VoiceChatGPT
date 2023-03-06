@@ -3,9 +3,9 @@ import openai
 from dotenv import load_dotenv
 
 
-def speech_to_text(audio_file):
+def speech_to_text(audio):
     try:
-        transcript = openai.Audio.transcribe("whisper-1", audio_file)
+        transcript = openai.Audio.transcribe("whisper-1", audio)
         return transcript['text']
     except:
         print("Something went wrong with the audio transcription.")

@@ -36,6 +36,6 @@ Voice Chat with ChatGPT
 
 - [x] text chat
 - [x] speech to text
-- [ ] text to speech
+- [x] text to speech
 - [ ] save chat log
 - [ ] exception handling

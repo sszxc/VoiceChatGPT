@@ -3,9 +3,10 @@ import io
 import openai
 import argparse
 from dotenv import load_dotenv
+from src.chat_with_GPT import ask_chatgpt
 from src.audio_recorder import record
 from src.speech_to_text import speech_to_text
-from src.chat_with_GPT import ask_chatgpt
+from src.text_to_speech import text_to_speech
 
 
 if __name__ == "__main__":
@@ -50,6 +51,7 @@ if __name__ == "__main__":
             result = ask_chatgpt(chat)
             chat.append({"role": "assistant", "content": result})
             print("\n>>> AI: " + result + "\n")
+            text_to_speech(result)
         except:
             print("Oops! Something went wrong. Please try again.\n")
             chat.pop()
