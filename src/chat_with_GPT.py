@@ -60,8 +60,9 @@ if __name__ == "__main__":
                 result = ask_chatgpt(chat)
                 chat.append({"role": "assistant", "content": result})
                 print("\n>>> AI: " + result + "\n")
-            except:
-                print("Oops! Something went wrong. Please try again.\n")
+            except openai.error.APIConnectionError as e:
+                print(e)
+                print("Oops! Something went wrong with the chat completion. Please try again.\n")
                 chat.pop()
     else:
         print("model_engine not supported")

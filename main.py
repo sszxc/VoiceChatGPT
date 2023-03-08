@@ -52,6 +52,7 @@ if __name__ == "__main__":
             chat.append({"role": "assistant", "content": result})
             print("\n>>> AI: " + result + "\n")
             text_to_speech(result)
-        except:
-            print("Oops! Something went wrong. Please try again.\n")
+        except openai.error.APIConnectionError as e:
+            print(e)
+            print("Oops! Something went wrong with the chat completion. Please try again.\n")
             chat.pop()

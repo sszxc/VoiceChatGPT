@@ -3,11 +3,12 @@ import wave
 import pyaudio
 import keyboard
 
+
 def record(target,
-           CHUNK = 1024,  # 每个音频块的大小
-           FORMAT = pyaudio.paInt16,  # 音频格式
-           CHANNELS = 1,  # 声道数
-           RATE = 44100,  # 采样率
+           CHUNK=1024,  # 每个音频块的大小
+           FORMAT=pyaudio.paInt16,  # 音频格式
+           CHANNELS=1,  # 声道数
+           RATE=44100,  # 采样率
            ):
     frames = []  # 存储每个音频块
     p = pyaudio.PyAudio()
@@ -24,10 +25,10 @@ def record(target,
     while True:
         space_pressed = keyboard.is_pressed('space')
         if space_pressed and not recording:
-            print("(开始录音)")
+            print("(Start recording)")
             recording = True
         elif not space_pressed and recording:
-            print("(结束录音)")
+            print("(Stop recording)")
             recording = False
             break
         if recording:
@@ -48,7 +49,7 @@ def record(target,
     wf.close()
     if isinstance(target, io.BytesIO):
         target.seek(0)  # 对于 io.BytesIO 将指针移动到文件开头
-    
+
     keyboard.unblock_key(57)  # 停止捕获空格键
 
 
@@ -58,4 +59,4 @@ if __name__ == "__main__":
 
     print("按下空格键开始录音，松开空格键结束录音并保存到文件中")
     record(target)
-    print("录音完成")    
+    print("录音完成")

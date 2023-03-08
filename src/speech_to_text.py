@@ -7,8 +7,9 @@ def speech_to_text(audio):
     try:
         transcript = openai.Audio.transcribe("whisper-1", audio)
         return transcript['text']
-    except:
-        print("Something went wrong with the audio transcription.")
+    except openai.error.APIConnectionError as e:
+        print(e)
+        print("Oops! Something went wrong with the audio transcription. Please try again.\n")
         return None
 
 
