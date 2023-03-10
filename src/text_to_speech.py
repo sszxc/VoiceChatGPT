@@ -5,7 +5,6 @@ engine = pyttsx3.init()
 
 
 def text_to_speech(text):
-
     # 将文本转换为语音并播放
     engine.say(text)
     engine.runAndWait()

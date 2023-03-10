@@ -9,6 +9,35 @@ from src.speech_to_text import speech_to_text
 from src.text_to_speech import text_to_speech
 
 
+def chat_loop(args):
+    chat = []  # 保存完整对话
+    while True:
+        # 获取输入
+        if args.text:
+            user_input = input(">>> You:\n\n")
+        else:
+            target = io.BytesIO()
+            target.name = 'audio.wav'
+            record(target)
+            user_input = speech_to_text(target)
+            print("\n>>> You: \n\n" + user_input)
+        if user_input.lower() in ["再見", "再见", "退出", "quit", "exit"]:
+            print("\nBye!\n")
+            break
+
+        # 处理对话
+        chat.append({"role": "user", "content": user_input})
+        try:
+            result = ask_chatgpt(chat)
+            chat.append({"role": "assistant", "content": result})
+            print("\n>>> AI: " + result + "\n")
+            text_to_speech(result)
+        except openai.error.APIConnectionError as e:
+            print(e)
+            print("Oops! Something went wrong with the chat completion. Please try again.\n")
+            chat.pop()
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--text", action="store_true",
@@ -30,29 +59,4 @@ if __name__ == "__main__":
           " '再见' or '退出' or 'quit' or 'exit'.\n",
           sep='')
 
-    chat = []  # 保存完整对话
-    while True:
-        # 获取输入
-        if args.text:
-            user_input = input(">>> You:\n\n")
-        else:
-            target = io.BytesIO()
-            target.name = 'audio.wav'
-            record(target)
-            user_input = speech_to_text(target)
-            print("\n>>> You: \n\n" + user_input)
-        if user_input in ["再見", "再见", "退出", "quit", "exit"]:
-            print("\nBye!\n")
-            break
-
-        # 处理对话
-        chat.append({"role": "user", "content": user_input})
-        try:
-            result = ask_chatgpt(chat)
-            chat.append({"role": "assistant", "content": result})
-            print("\n>>> AI: " + result + "\n")
-            text_to_speech(result)
-        except openai.error.APIConnectionError as e:
-            print(e)
-            print("Oops! Something went wrong with the chat completion. Please try again.\n")
-            chat.pop()
+    chat_loop()
