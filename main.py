@@ -59,4 +59,4 @@ if __name__ == "__main__":
           " '再见' or '退出' or 'quit' or 'exit'.\n",
           sep='')
 
-    chat_loop()
+    chat_loop(args)
