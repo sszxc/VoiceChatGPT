@@ -1,5 +1,7 @@
 # VoiceChatGPT
 
+![banner](banner.gif)
+
 A simple script for Voice Talk with ChatGPT.
 
 * Use pyaudio for voice recording
@@ -42,5 +44,5 @@ A simple script for Voice Talk with ChatGPT.
 - [x] text chat
 - [x] speech to text
 - [x] text to speech
-- [ ] save chat log
-- [ ] exception handling
+- [x] exception handling
+- [ ] save & load chat log
